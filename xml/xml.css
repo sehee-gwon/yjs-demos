@@ -1,1 +1,3 @@
-textarea {width: 80%;}
+textarea {width: 20%;}
+section {margin: 100px 10px}
+section#xml-test2 div, section#xml-test3 div {border-bottom: 1px solid;}

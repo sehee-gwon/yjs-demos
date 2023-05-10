@@ -1,15 +1,76 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Yjs Xml Example</title>
-    <script type="text/javascript" src="./dist/xml.js" async></script>
-    <link rel=stylesheet href="./xml.css"  async defer>
-</head>
-<body>
-    <p>The content of this editor is shared with every client that visits this domain.</p>
-    <div>
-        <textarea id="content" rows="10"></textarea>
-    </div>
-</body>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Yjs Xml Example</title>
+        <script type="text/javascript" src="./dist/xml.js" async></script>
+        <link rel=stylesheet href="./xml.css" async defer>
+    </head>
+    <body>
+        <section id="xml-test1">
+            <p>textarea 에 입력한 내용을 xml 로 저장하기</p>
+            <div>
+                <textarea id="content" rows="10"></textarea>
+            </div>
+        </section>
+        <section id="xml-test2">
+            <p>xml 요소 관리하기</p>
+            <div class="search">
+                <p>xml 조회</p>
+                <p>
+                    <button type="button">조회</button>
+                </p>
+            </div>
+            <div class="add">
+                <p>xml 요소 추가</p>
+                <p>요소명: <input type="text" name="elementName" /></p>
+                <p>ID: <input type="text" name="idValue" /></p>
+                <p>
+                    <button type="button">추가</button>
+                </p>
+            </div>
+            <div class="delete">
+                <p>xml 요소 삭제</p>
+                <p>요소명: <input type="text" name="elementName" /></p>
+                <p>ID: <input type="text" name="idValue" /></p>
+                <p>
+                    <button type="button">삭제</button>
+                </p>
+            </div>
+        </section>
+        <section id="xml-test3">
+            <p>xml 요소 속성 관리하기</p>
+            <div class="search">
+                <p>xml 요소 조회</p>
+                <p>요소명: <input type="text" name="elementName" /></p>
+                <p>ID: <input type="text" name="idValue" /></p>
+                <p>
+                    <button type="button">조회</button>
+                </p>
+            </div>
+            <div class="set">
+                <p>xml 요소 속성 추가/수정</p>
+                <p>요소명: <input type="text" name="elementName" /></p>
+                <p>ID: <input type="text" name="idValue" /></p>
+                <p>속성명: <input type="text" name="attrName" /></p>
+                <p>속성값: <input type="text" name="attrValue" /></p>
+                <p>
+                    <button type="button">추가/수정</button>
+                </p>
+            </div>
+            <div class="delete">
+                <p>xml 요소 속성 삭제</p>
+                <p>요소명: <input type="text" name="elementName" /></p>
+                <p>ID: <input type="text" name="idValue" /></p>
+                <p>속성명: <input type="text" name="attrName" /></p>
+                <p>
+                    <button type="button">삭제</button>
+                </p>
+            </div>
+        </section>
+        <section id="xml-test4">
+            <p>sheet.xml 의 SVG 요소만 읽기</p>
+            <div id="svg-block"></div>
+        </section>
+    </body>
 </html>
