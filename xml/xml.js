@@ -122,12 +122,12 @@ section2.querySelector('.delete button').addEventListener('click', e => {
 // xml 요소 변경사항 관찰
 xmlFragment2.observe(xmlEvent => {
     // xml 요소 추가시 발생
-    xmlEvent.changes.added.forEach(item => {
-        console.log('xml element added: ', item)
+    xmlEvent.changes.added.forEach(element => {
+        console.log('xml element added: ', element)
 
         // xml 요소 속성 변경사항 관찰
         // 요소 추가시 하위 element 의 observe 를 달아줘야 함
-        const xmlElement = item.content.type
+        const xmlElement = element.content.type
         xmlElement.observe(xmlEvent => {
             xmlEvent.changes.keys.forEach((change, key) => {
                 if (change.action === 'add') {
@@ -142,8 +142,8 @@ xmlFragment2.observe(xmlEvent => {
     })
 
     // xml 요소 삭제시 발생
-    xmlEvent.changes.deleted.forEach(item => {
-        console.log('xml element deleted: ', item)
+    xmlEvent.changes.deleted.forEach(element => {
+        console.log('xml element deleted: ', element)
     })
 })
 
