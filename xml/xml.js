@@ -1,5 +1,4 @@
 import * as Y from 'yjs'
-import {XmlElement} from 'yjs'
 import {IndexeddbPersistence} from 'y-indexeddb'
 
 const doc = new Y.Doc()
