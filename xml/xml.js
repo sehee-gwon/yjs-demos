@@ -80,7 +80,7 @@ const xmlFragment2 = doc.getXmlFragment(xmlFragmentName + '2')
 const section2 = document.getElementById('xml-test2')
 const ID = 'id'
 
-// xml 조회
+// xml 전체 요소 조회
 section2.querySelector('.search button').addEventListener('click', e => {
     console.log(xmlFragment2.toDOM())
 })
@@ -119,31 +119,31 @@ section2.querySelector('.delete button').addEventListener('click', e => {
     console.log(xmlFragment2.toDOM())
 })
 
-// xml dom 변경사항 관찰
+// xml 요소 변경사항 관찰
 xmlFragment2.observe(xmlEvent => {
-    // xml fragment 추가시 발생
+    // xml 요소 추가시 발생
     xmlEvent.changes.added.forEach(item => {
-        console.log('xml fragment added: ', item)
+        console.log('xml element added: ', item)
 
-        // xml 요소 변경사항 관찰
-        // fragment 추가시 하위 element 의 observe 를 달아줘야 함
+        // xml 요소 속성 변경사항 관찰
+        // 요소 추가시 하위 element 의 observe 를 달아줘야 함
         const xmlElement = item.content.type
         xmlElement.observe(xmlEvent => {
             xmlEvent.changes.keys.forEach((change, key) => {
                 if (change.action === 'add') {
-                    console.log(`xml element added: Attribute { key: "${key}", value: "${xmlElement.getAttribute(key) }" }`)
+                    console.log(`xml element attribute added: { key: "${key}", value: "${xmlElement.getAttribute(key) }" }`)
                 } else if (change.action === 'update') {
-                    console.log(`xml element updated: Attribute { key: "${key}", old-value: "${change.oldValue}", new-value: "${xmlElement.getAttribute(key) }" }`)
+                    console.log(`xml element attribute updated: { key: "${key}", old-value: "${change.oldValue}", new-value: "${xmlElement.getAttribute(key) }" }`)
                 } else if (change.action === 'delete') {
-                    console.log(`xml element deleted: Attribute { key: "${key}", value: "${change.oldValue}" }`)
+                    console.log(`xml element attribute deleted: { key: "${key}", value: "${change.oldValue}" }`)
                 }
             })
         })
     })
 
-    // xml fragment 삭제시 발생
+    // xml 요소 삭제시 발생
     xmlEvent.changes.deleted.forEach(item => {
-        console.log('xml fragment deleted: ', item)
+        console.log('xml element deleted: ', item)
     })
 })
 
@@ -153,7 +153,7 @@ xmlFragment2.observe(xmlEvent => {
 // xml 요소 속성 관리하기
 const section3 = document.getElementById('xml-test3')
 
-// xml 요소 조회
+// xml 특정 요소 조회
 section3.querySelector('.search button').addEventListener('click', e => {
     const elementName = section3.querySelector('.search input[name=elementName]').value
     const idValue = section3.querySelector('.search input[name=idValue]').value
@@ -218,7 +218,7 @@ section3.querySelector('.delete button').addEventListener('click', e => {
     console.log(xmlElement.toDOM())
 })
 
-// xml 요소 조회 function
+// xml 특정 요소 조회 function
 function getXmlElement(elementName, id) {
     let oldXmlElement;
     xmlFragment2.forEach(xmlElement => {
